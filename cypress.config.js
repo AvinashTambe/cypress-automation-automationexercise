@@ -10,6 +10,7 @@ module.exports = defineConfig({
       base_url: process.env.base_url,
       validusername: process.env.validusername,
       validpassword: process.env.validpassword,
+      validuserprofile: process.env.validuserprofile,
     },
   },
 });
