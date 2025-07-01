@@ -14,17 +14,9 @@ class LoginPage {
     enterCredentials(email?: string, password?: string) {
         if (email !== undefined) {
             cy.get(Login.Inputs.email).type(email);
-            if (email === '') {
-                cy.contains(Login.Inputs.email)
-                    .should('have.text', Login.Validations.missingdata);
-            }
         }
         if (password !== undefined) {
             cy.get(Login.Inputs.password).type(password);
-            if (password === '') {
-                cy.contains(Login.Inputs.password)
-                    .should('have.text', Login.Validations.missingdata);
-            }
         }
     }
 

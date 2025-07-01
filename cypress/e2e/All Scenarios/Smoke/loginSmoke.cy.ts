@@ -13,22 +13,26 @@ describe('Login Smoke Test', () => {
 
   it('Verify required fields (email & password) validation', () => { 
     loginPage.enterCredentials(undefined, Cypress.env('validpassword'));
-    cy.get(Login.Buttons.loginbtn).click();
+    loginPage.clickLoginButton();
+    cy.wait(1000);
+    cy.get(Login.Inputs.email)
+            .invoke('prop', 'validationMessage')
+            .should('contain', Login.Validations.missingdata);  
   });
 
-  it.only('Verify login with valid registered email and password', () => { 
+  it('Verify login with valid registered email and password', () => { 
     loginPage.enterCredentials(Cypress.env('validusername'), Cypress.env('validpassword'));
     loginPage.clickLoginButton();
     loginPage.validateUserProfiledetails();
     loginPage.clickLogoutButton();
   });
   
-  it('Verify login fails with incorrect password', () => { 
+  it.only('Verify login fails with incorrect password', () => { 
     const invalidPassword = 'wrongpassword';
     loginPage.enterCredentials(Cypress.env('validusername'), invalidPassword);
     loginPage.clickLoginButton();
+    cy.wait(1000);
     cy.contains(Login.Validations.invalidcredentials).should('be.visible');
-    loginPage.clickLogoutButton();
   });
 
   it('Verify login fails with unregistered email', () => {
