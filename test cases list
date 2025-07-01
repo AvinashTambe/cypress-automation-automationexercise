@@ -1,0 +1,29 @@
+| --------------------------- Login > Smoke --------------------------- |
+
+| TC No. | Test Case Description                                 | Expected Result                                               |
+| ------ | ----------------------------------------------------- | ------------------------------------------------------------- |
+| STC-01 | Verify login page loads successfully                  | Login form with Email and Password inputs is visible          |
+| STC-02 | Verify required fields (email & password) validation  | Browser prompts to fill the field if left empty               |
+| STC-03 | Verify login with valid registered email and password | User is redirected to account/dashboard page                  |
+| STC-04 | Verify login fails with incorrect password            | Error message “Your email or password is incorrect!” is shown |
+| STC-05 | Verify login fails with unregistered email            | Error message is displayed                                    |
+| STC-06 | Verify login button is clickable                      | Button is enabled and clickable                               |
+
+| --------------------------- Login > Regression --------------------------- |
+| TC No. | Test Case Description                                         | Expected Result                                   |
+| ------ | ------------------------------------------------------------- | ------------------------------------------------- |
+| RTC-01 | Verify login with blank email                                 | Validation: “Please fill out this field.”         |
+| RTC-02 | Verify login with blank password                              | Validation: “Please fill out this field.”         |
+| RTC-03 | Verify login with invalid email format (e.g. "abc@")          | Validation: Browser blocks submission             |
+| RTC-04 | Verify login with SQL injection in email field                | Error message shown; no login success             |
+| RTC-05 | Verify login with special characters in password (e.g. !@#^&) | Login should succeed if credentials are valid     |
+| RTC-06 | Verify that password field hides input (type="password")      | Password is masked while typing                   |
+| RTC-07 | Verify session persists after successful login                | User stays logged in on page refresh              |
+| RTC-08 | Verify logout clears the session                              | User is logged out and redirected                 |
+| RTC-09 | Verify "Signup/Login" link redirects to login page            | User lands on login form                          |
+| RTC-10 | Verify tab navigation works between fields and button         | User can navigate via tab key                     |
+| RTC-11 | Verify remember me functionality (if implemented)             | Credentials are retained after browser restart    |
+| RTC-12 | Verify password field supports at least 8 characters          | Enforce password length policy if any             |
+| RTC-13 | Verify error message disappears on new attempt                | Error message is reset when user types again      |
+| RTC-14 | Verify login from mobile viewport                             | Responsive login UI and behavior remains correct  |
+| RTC-15 | Verify copy/paste functionality for email and password        | User can paste credentials and login successfully |

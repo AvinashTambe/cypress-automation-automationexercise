@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// Custom command to visit the Automation Exercise website
+Cypress.Commands.add('visitAutomationExercise', () => {
+  cy.visit(Cypress.env('base_url'));
+  console.log('Base URL:', Cypress.env('base_url'));
+
+});
+
+
