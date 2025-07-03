@@ -22,8 +22,9 @@ describe('Login Smoke Test', () => {
 
   it('Verify login with valid registered email and password', () => { 
     loginPage.enterCredentials(Cypress.env('validusername'), Cypress.env('validpassword'));
+    const validUserProfile = Cypress.env('validuserprofile');
     loginPage.clickLoginButton();
-    loginPage.validateUserProfiledetails();
+    loginPage.validateUserProfiledetails(validUserProfile);
     loginPage.clickLogoutButton();
   });
   
@@ -45,7 +46,8 @@ describe('Login Smoke Test', () => {
   it('Verify login button is clickable', () => {
     loginPage.enterCredentials(Cypress.env('validusername'), Cypress.env('validpassword'));
     loginPage.clickLoginButton();
-    loginPage.validateUserProfiledetails();
+    const validUserProfile = Cypress.env('validuserprofile');
+    loginPage.validateUserProfiledetails(validUserProfile);
     loginPage.clickLogoutButton();
   });
 

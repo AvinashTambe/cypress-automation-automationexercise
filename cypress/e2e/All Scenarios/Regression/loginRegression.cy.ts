@@ -45,16 +45,18 @@ describe('Login Regression Test', () => {
     it('Verify session persists after successful login', () => { 
         loginPage.enterCredentials(Cypress.env('validusername'), Cypress.env('validpassword'));
         loginPage.clickLoginButton();
-        loginPage.validateUserProfiledetails();
+        const validUserProfile = Cypress.env('validuserprofile');
+        loginPage.validateUserProfiledetails(validUserProfile);
         cy.reload();
-        loginPage.validateUserProfiledetails();
+        loginPage.validateUserProfiledetails(validUserProfile);
         loginPage.clickLogoutButton();
     });
 
     it('Verify logout clears the session', () => {
         loginPage.enterCredentials(Cypress.env('validusername'), Cypress.env('validpassword'));
         loginPage.clickLoginButton();
-        loginPage.validateUserProfiledetails();
+        const validUserProfile = Cypress.env('validuserprofile');
+        loginPage.validateUserProfiledetails(validUserProfile);
         loginPage.clickLogoutButton();
         cy.reload();
         cy.get(Login.Buttons.navbar_userprofile).should('not.exist');
