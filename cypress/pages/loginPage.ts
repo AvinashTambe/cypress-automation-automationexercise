@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import { use } from 'chai';
 import { Login } from '../locators/Login';
 
 class LoginPage {
@@ -28,12 +29,12 @@ class LoginPage {
             .click();
     }
 
-    validateUserProfiledetails() {
+    validateUserProfiledetails(userProfile?: string) {
         cy.get(Login.Buttons.navbar_userprofile)
             .parent()
             .should('be.visible')
             .should('not.be.disabled')
-            .should('contain.text', `Logged in as ${Cypress.env('validuserprofile')}`);
+            .should('contain.text', `Logged in as ${userProfile}`);
     }
 
     clickLogoutButton() {

@@ -1,0 +1,25 @@
+|-------------- Smoke Test suite ----------------- |
+
+| TC No. | Title                                                | Expected Result                                                                |
+| ------ | ---------------------------------------------------- | ------------------------------------------------------------------------------ |
+| STC01  | Verify signup form opens successfully                | Signup form is visible with required fields and buttons                        |
+| STC02  | Verify user can enter name and email to start signup | Signup section expands, `name` and `email` fields are auto-filled and disabled |
+| STC03  | Verify user can create account with required fields  | Account is created and `account_created` confirmation is shown                 |
+| STC04  | Verify account creation success message              | `account_created` and `accountsuccessmsg` messages are displayed               |
+| STC05  | Verify Continue button works after account creation  | User is redirected to the next page (e.g., dashboard or home)                  |
+
+|-------------- Regression Test suite ----------------- |
+
+| TC No. | Title                                                                         | Expected Result                                                          |
+| ------ | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| RTC01  | Verify all required fields validation                                         | Each required field shows `"Please fill in this field."` when empty      |
+| RTC02  | Verify email validation                                                       | Shows `"Please include an '@' in the email address."` for invalid emails |
+| RTC03  | Verify pre-filled `name` and `email` are disabled after clicking signup       | `name` and `email` inputs are pre-filled and disabled                    |
+| RTC04  | Verify optional fields can be left blank                                      | Account is created successfully without optional fields                  |
+| RTC05  | Verify dropdowns - Date of birth                                              | Selected values are retained in date/month/year dropdowns                |
+| RTC06  | Verify newsletter checkbox toggling                                           | Checkbox toggles between checked and unchecked states                    |
+| RTC07  | Verify optional options checkbox toggling                                     | Checkbox toggles between checked and unchecked states                    |
+| RTC08  | Verify country dropdown selection                                             | Selected country is retained correctly                                                                             |
+| RTC09  | Verify zip code accepts alphanumeric input                                    | Input is accepted and saved                                              |
+| RTC10  | Verify form reset on reload                                                   | All field values are cleared on page reload                              |
+| RTC11  | Verify duplicate signup email validation                                      | Error/toaster message appears for already registered emails              |
