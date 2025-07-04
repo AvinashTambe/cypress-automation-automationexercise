@@ -27,7 +27,6 @@
 Cypress.Commands.add('visitAutomationExercise', () => {
   cy.visit(Cypress.env('base_url'));
   console.log('Base URL:', Cypress.env('base_url'));
-
 });
 
 

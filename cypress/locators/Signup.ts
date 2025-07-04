@@ -36,6 +36,6 @@ export namespace Signup {
         invalidemail = "Please include an '@' in the email address.",
         accountcreated = "Account Created!",
         accountsuccessmsg = "Congratulations! Your new account has been successfully created!",
-        
+        duplicateemailerror = "Email Address already exist!",
     }
 }
